@@ -46,6 +46,7 @@ public class GamePanel extends JPanel{
     private int highScore;
     private int markerX, markerY;
     File f = new File("Highscore.txt");
+    int count = 0;
 
     // Oggetti
     public Ship playerShip;
@@ -113,19 +114,16 @@ public class GamePanel extends JPanel{
     @Override
     public void paint(Graphics g) {
 
-        background.paintIcon(null, g, 0, -150);
-        // Sfondo
-    	//if ( level != 3) {
-    	//
-    	/*} else if (level == 3) {
-    		background2.paintIcon(null, g, 0, -150);
-    	}*/
-    		
-    	if (score >= 10000) {
-    		background2.paintIcon(null, g, 0, -150);
-   		} else if (score < 10000) {
-   		background.paintIcon(null, g, 0, -150);
-   		}
+        //background.paintIcon(null, g, 0, -150);
+
+
+        if (count == 2) {
+            background2.paintIcon(null, g, 0, -150);
+        }
+
+        if (count < 2) {
+            background.paintIcon(null, g, 0, -150);
+        }
 
     	
         //Assegnazione punteggio
@@ -423,13 +421,24 @@ public class GamePanel extends JPanel{
         
         //In caso di vittoria
         if (enemyList.isEmpty()) {
-        	
+
+            //System.out.print (lifeList.size());
+
+            //Contatore livelli perfetti
+            if (lifeList.size() == 3) {
+                count++;
+            }
+
         	if (level == 3) {
         		JOptionPane.showConfirmDialog(null, "COMPLIMENTI!\nHAI TOTALIZZATO " + score + " PUNTI", "VITTORIA!", -1);
         		System.exit(0);
         	}
 
         	if (level != 3) {
+
+
+
+
                 // Opzioni post-partita
                 int answer = JOptionPane.showConfirmDialog(null, "HAI TOTALIZZATO " + score + " PUNTI\nPassare al nuovo livello?", "VITTORIA!", 0);
                 // Riavvia la partita
