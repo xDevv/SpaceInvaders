@@ -29,6 +29,8 @@ public class GamePanel extends JPanel{
 
     // Timer
     private Timer gameTimer;
+
+
     public KeyboardController controller;
 
 
