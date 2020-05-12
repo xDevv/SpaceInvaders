@@ -116,15 +116,15 @@ public class GamePanel extends JPanel{
     @Override
     public void paint(Graphics g) {
 
-        //background.paintIcon(null, g, 0, -150);
+        background.paintIcon(null, g, 0, -150);
 
 
-        if (count == 2) {
-            background2.paintIcon(null, g, 0, -150);
-        }
+       if (count == 2) {
+           background2.paintIcon(null, g, 0, 0);
+       }
 
         if (count < 2) {
-            background.paintIcon(null, g, 0, -150);
+           background.paintIcon(null, g, 0, -150);
         }
 
     	
