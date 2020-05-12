@@ -69,8 +69,8 @@ public class GamePanel extends JPanel{
     public ArrayList<Enemy> enemyList = new ArrayList();
     public ArrayList<Shield> shieldList = new ArrayList();
     public ArrayList<Beam> beamList = new ArrayList();
-    public ImageIcon background = new ImageIcon("images/backgroundSkin.jpg");
-    public ImageIcon background2 = new ImageIcon("images/bonusBackground.jpg");
+    public ImageIcon background = new ImageIcon("dist/images/backgroundSkin.jpg");
+    public ImageIcon background2 = new ImageIcon("dist/images/bonusBackground.jpg");
 
     
     
@@ -121,11 +121,11 @@ public class GamePanel extends JPanel{
     		background2.paintIcon(null, g, 0, -150);
     	}*/
     		
-    	//if (score >= 10000) {
-    		//background2.paintIcon(null, g, 0, -150);
-   		//} else if (score < 10000) {
+    	if (score >= 10000) {
+    		background2.paintIcon(null, g, 0, -150);
+   		} else if (score < 10000) {
    		background.paintIcon(null, g, 0, -150);
-   		//}
+   		}
 
     	
         //Assegnazione punteggio
@@ -428,27 +428,29 @@ public class GamePanel extends JPanel{
         		JOptionPane.showConfirmDialog(null, "COMPLIMENTI!\nHAI TOTALIZZATO " + score + " PUNTI", "VITTORIA!", -1);
         		System.exit(0);
         	}
-            
-        	// Opzioni post-partita
-            int answer = JOptionPane.showConfirmDialog(null, "HAI TOTALIZZATO " + score + " PUNTI\nPassare al nuovo livello?", "VITTORIA!", 0);
-            // Riavvia la partita
-            if (answer == 0) {
-                lifeList.clear();
-                enemyList.clear();
-                shieldList.clear();
-                beamList.clear();
-                bonusEnemyList.clear();
-                score = score ;
-                level++;
-                numberOfLives = 3;
-                newBulletCanFire = true;
-                newBeamCanFire = true;
-                newBonusEnemy = true;
-                setupGame();
-            }
-            // Chiudi il gioco
-            if (answer == 1) {
-                System.exit(0);
+
+        	if (level != 3) {
+                // Opzioni post-partita
+                int answer = JOptionPane.showConfirmDialog(null, "HAI TOTALIZZATO " + score + " PUNTI\nPassare al nuovo livello?", "VITTORIA!", 0);
+                // Riavvia la partita
+                if (answer == 0) {
+                    lifeList.clear();
+                    enemyList.clear();
+                    shieldList.clear();
+                    beamList.clear();
+                    bonusEnemyList.clear();
+                    score = score;
+                    level++;
+                    numberOfLives = 3;
+                    newBulletCanFire = true;
+                    newBeamCanFire = true;
+                    newBonusEnemy = true;
+                    setupGame();
+                }
+                // Chiudi il gioco
+                if (answer == 1) {
+                    System.exit(0);
+                }
             }
         }
         

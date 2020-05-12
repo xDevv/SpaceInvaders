@@ -10,17 +10,17 @@ import javax.swing.ImageIcon;
 
 public class Enemy extends MovingGameObject {
 	//Mondo 1
-    ImageIcon enemy1_1 = new ImageIcon("images/enemy1_1.gif");
-    ImageIcon enemy2_1 = new ImageIcon("images/enemy2_1.gif");
-    ImageIcon enemy3_1 = new ImageIcon("images/enemy3_1.gif");
+    ImageIcon enemy1_1 = new ImageIcon("dist/images/enemy1_1.gif");
+    ImageIcon enemy2_1 = new ImageIcon("dist/images/enemy2_1.gif");
+    ImageIcon enemy3_1 = new ImageIcon("dist/images/enemy3_1.gif");
     //Mondo 2
-    ImageIcon enemy1_2 = new ImageIcon("images/enemy1_2.gif");
-    ImageIcon enemy2_2 = new ImageIcon("images/enemy2_2.gif");
-    ImageIcon enemy3_2 = new ImageIcon("images/enemy3_2.gif");
+    ImageIcon enemy1_2 = new ImageIcon("dist/images/enemy1_2.gif");
+    ImageIcon enemy2_2 = new ImageIcon("dist/images/enemy2_2.gif");
+    ImageIcon enemy3_2 = new ImageIcon("dist/images/enemy3_2.gif");
     //Mondo 3
-    ImageIcon enemy1_3 = new ImageIcon("images/enemy1_3.gif");
-    ImageIcon enemy2_3 = new ImageIcon("images/enemy2_3.gif");
-    ImageIcon enemy3_3 = new ImageIcon("images/enemy3_3.gif");
+    ImageIcon enemy1_3 = new ImageIcon("dist/images/enemy1_3.gif");
+    ImageIcon enemy2_3 = new ImageIcon("dist/images/enemy2_3.gif");
+    ImageIcon enemy3_3 = new ImageIcon("dist/images/enemy3_3.gif");
     
     private int enemytype, width, height;
 
