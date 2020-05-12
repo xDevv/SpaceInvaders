@@ -6,12 +6,10 @@ import java.awt.event.KeyListener;
 import javax.swing.ImageIcon;
 
 
-import Game.GamePanel;
-
-
-public class KeyboardController extends GamePanel implements KeyListener {
+public class KeyboardController implements KeyListener {
     public boolean[] keyStatus;
-    
+
+
     public KeyboardController() {
         keyStatus = new boolean[256];
     }

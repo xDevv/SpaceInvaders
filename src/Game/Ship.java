@@ -10,13 +10,13 @@ import javax.swing.ImageIcon;
 
 public class Ship extends ControlledGameObject {
 
-    ImageIcon ship = new ImageIcon("images/ship1_1.gif");
-    ImageIcon ship2 = new ImageIcon("images/ship1_2.gif");
-    ImageIcon ship3 = new ImageIcon("images/ship1_3.gif");
-    ImageIcon bonusEnemy = new ImageIcon("images/bonusenemy1_3.gif");
-    ImageIcon lifeCounterShip = new ImageIcon("images/ship1_1_life.gif");
-    ImageIcon lifeCounterShip2 = new ImageIcon("images/ship1_2_life.gif");
-    ImageIcon lifeCounterShip3 = new ImageIcon("images/ship1_3_life.gif");
+    ImageIcon ship = new ImageIcon("dist/images/ship1_1.gif");
+    ImageIcon ship2 = new ImageIcon("dist/images/ship1_2.gif");
+    ImageIcon ship3 = new ImageIcon("dist/images/ship1_3.gif");
+    ImageIcon bonusEnemy = new ImageIcon("dist/images/bonusenemy1_3.gif");
+    ImageIcon lifeCounterShip = new ImageIcon("dist/images/ship1_1_life.gif");
+    ImageIcon lifeCounterShip2 = new ImageIcon("dist/images/ship1_2_life.gif");
+    ImageIcon lifeCounterShip3 = new ImageIcon("dist/images/ship1_3_life.gif");
 
     // Constructor for all ship objects
     public Ship(int xPosition, int yPosition, Color color, KeyboardController control) {
@@ -57,8 +57,7 @@ public class Ship extends ControlledGameObject {
     // Gets the hit box for all ship objects
     @Override
     public Rectangle getBounds() {
-        Rectangle shipHitbox = new Rectangle(this.getXPosition(), this.getYPosition(), 50, 50);
-        return shipHitbox;
+        return new Rectangle(this.getXPosition(), this.getYPosition(), 50, 50);
     }
 
     // Muove la navicella

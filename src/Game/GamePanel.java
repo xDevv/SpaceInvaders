@@ -29,7 +29,8 @@ public class GamePanel extends JPanel{
 
     // Timer
     private Timer gameTimer;
-    public KeyboardController controller = new KeyboardController();
+    public KeyboardController controller;
+
 
    
     // Dimensioni schermata e fps
@@ -47,13 +48,13 @@ public class GamePanel extends JPanel{
     File f = new File("Highscore.txt");
 
     // Oggetti
-    private Ship playerShip;
-    private Ship singleLife;
-    private Ship bonusEnemy;
-    private Enemy enemy;
-    private Shield shield;
-    private Bullet bullet;
-    private Beam beam, beam2, beam3;
+    public Ship playerShip;
+    public Ship singleLife;
+    public Ship bonusEnemy;
+    public Enemy enemy;
+    public Shield shield;
+    public Bullet bullet;
+    public Beam beam;
 
     // Booleani
     private boolean newBulletCanFire = true;
@@ -63,12 +64,12 @@ public class GamePanel extends JPanel{
     private boolean gameStatus = false;
 
     // Liste Array 
-    private ArrayList<Ship> lifeList = new ArrayList();
-    private ArrayList<Ship> bonusEnemyList = new ArrayList();
-    private ArrayList<Enemy> enemyList = new ArrayList();
-    private ArrayList<Shield> shieldList = new ArrayList();
-    private ArrayList<Beam> beamList = new ArrayList();
-    private ImageIcon background = new ImageIcon("images/backgroundSkin.jpg");
+    public ArrayList<Ship> lifeList = new ArrayList();
+    public ArrayList<Ship> bonusEnemyList = new ArrayList();
+    public ArrayList<Enemy> enemyList = new ArrayList();
+    public ArrayList<Shield> shieldList = new ArrayList();
+    public ArrayList<Beam> beamList = new ArrayList();
+    public ImageIcon background = new ImageIcon("images/backgroundSkin.jpg");
     public ImageIcon background2 = new ImageIcon("images/bonusBackground.jpg");
 
     
@@ -111,20 +112,20 @@ public class GamePanel extends JPanel{
     
     @Override
     public void paint(Graphics g) {
-    	
-    	
+
+        background.paintIcon(null, g, 0, -150);
         // Sfondo
     	//if ( level != 3) {
-    	//	background.paintIcon(null, g, 0, -150); 
+    	//
     	/*} else if (level == 3) {
     		background2.paintIcon(null, g, 0, -150);
     	}*/
     		
-    	if (score >= 10000) {
-    		background2.paintIcon(null, g, 0, -150);
-   		} else if (score < 10000) {
-   			background.paintIcon(null, g, 0, -150);
-   		}
+    	//if (score >= 10000) {
+    		//background2.paintIcon(null, g, 0, -150);
+   		//} else if (score < 10000) {
+   		background.paintIcon(null, g, 0, -150);
+   		//}
 
     	
         //Assegnazione punteggio
@@ -158,7 +159,6 @@ public class GamePanel extends JPanel{
         if (controller.getKeyStatus(32)) {
             if (newBulletCanFire) {
                 bullet = new Bullet(playerShip.getXPosition() + 22, playerShip.getYPosition() - 20, 0, Color.RED);
-             
                 newBulletCanFire = false;
             }
         }
@@ -246,13 +246,13 @@ public class GamePanel extends JPanel{
 
         // Quando la fila di nemici arriva alla fine o all'inizio della schermata, velocità di x *-1 e piu giu di 10
         if ((enemyList.get(enemyList.size() - 1).getXPosition() + enemyList.get(enemyList.size() - 1).getXVelocity()) > 770 || (enemyList.get(0).getXPosition() + enemyList.get(0).getXVelocity()) < 0) {
-            for (int index = 0; index < enemyList.size(); index++) {
-                enemyList.get(index).setXVelocity(enemyList.get(index).getXVelocity() * -1);
-                enemyList.get(index).setYPosition(enemyList.get(index).getYPosition() + 10);
+            for (Enemy value : enemyList) {
+                value.setXVelocity(value.getXVelocity() * -1);
+                value.setYPosition(value.getYPosition() + 10);
             }
         } else { //Movimento dei nemici in orizzontale
-            for (int index = 0; index < enemyList.size(); index++) {
-                enemyList.get(index).move();
+            for (Enemy value : enemyList) {
+                value.move();
             }
         }
         
@@ -439,7 +439,7 @@ public class GamePanel extends JPanel{
                 beamList.clear();
                 bonusEnemyList.clear();
                 score = score ;
-                level = level+1;
+                level++;
                 numberOfLives = 3;
                 newBulletCanFire = true;
                 newBeamCanFire = true;
@@ -492,6 +492,7 @@ public class GamePanel extends JPanel{
         this.setBackground(Color.BLACK);
 
       // Contollo tastiera
+        this.controller =new KeyboardController();
         this.addKeyListener(controller);
 
 
