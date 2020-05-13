@@ -15,6 +15,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 
 public class Sounds {
 
+
     public static void main(String[] args) {
 
     }
@@ -46,9 +47,10 @@ public class Sounds {
             DataLine.Info info=new DataLine.Info(Clip.class,ais.getFormat(),((int)ais .getFrameLength()*af.getFrameSize()));
             Clip ol=(Clip)AudioSystem.getLine(info);
             ol.open(ais);
-            ol.loop(Clip.LOOP_CONTINUOUSLY);
+            //ol.loop(Clip.LOOP_CONTINUOUSLY);
+            ol.start();
 
-            if (GamePanel. == true)
+
 
         }catch(UnsupportedAudioFileException ee){ee.printStackTrace();}
         catch(IOException ea){ea.printStackTrace();}
@@ -56,6 +58,13 @@ public class Sounds {
 
 
     }
+
+    public void ferma(){
+
+    }
+
+
+
 
 
 }
