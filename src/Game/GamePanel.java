@@ -65,7 +65,7 @@ public class GamePanel extends JPanel{
     private boolean newBonusEnemy = true;
     private boolean hitMarker = false;
     private boolean gameStatus = false;
-
+    public boolean en = false;
     // Liste Array 
     public ArrayList<Ship> lifeList = new ArrayList();
     public ArrayList<Ship> bonusEnemyList = new ArrayList();
@@ -75,11 +75,29 @@ public class GamePanel extends JPanel{
     public ImageIcon background = new ImageIcon("dist/images/backgroundSkin.jpg");
     public ImageIcon background2 = new ImageIcon("dist/images/bonusBackground.jpg");
 
+    public File sound1 = new File("sounds/FX2.wav");
+    public File sound2 = new File("sounds/FX9.wav");
+    public File sound3 = new File("sounds/FX13.wav");
+    public File sound4 = new File("sounds/Perc3.wav");
+    public File musica = new File("sounds/Musica.wav");
+    public File win = new File("sounds/Win.wav");
+    public File loss = new File("sounds/Loss.wav");
     
     
+    public boolean enemy(boolean en){
+        if (enemyList.size() == 0){
+            en = true;
+        }else{
+            en = false;
+        }
+        return en;
+    }
+
+
+
     public final void setupGame() {
-    	    	
-    	// Nemici
+
+        // Nemici
     		for (int row = 0; row < 6; row++) {
                
                 for (int column = 0; column < 5; column++) {
@@ -88,7 +106,9 @@ public class GamePanel extends JPanel{
                
             }
         }
-        
+
+
+
         // Controllo movimenti
         controller.resetController();
 
@@ -260,7 +280,7 @@ public class GamePanel extends JPanel{
 
         // Movimento del proiettile 
         if (bullet != null) {
-        	
+
             bullet.setYPosition(bullet.getYPosition() - 15 );
             if (bullet.getYPosition() < 0) {
                 newBulletCanFire = true;
@@ -279,6 +299,11 @@ public class GamePanel extends JPanel{
                         markerX = enemyList.get(index).getXPosition(); 
                         markerY = enemyList.get(index).getYPosition();
                         enemyList.remove(index);
+
+                    //Suono hitmarker
+                        Sounds.sound(sound1);
+
+
                 }
             }
 
@@ -355,6 +380,9 @@ public class GamePanel extends JPanel{
             for (int j = 0; j < shieldList.size(); j++) {
                 for (int index = 0; index < beamList.size(); index++) {
                     if (beamList.get(index).isColliding(shieldList.get(j))) {
+                       //Suono scudo colpito
+                        Sounds.sound(sound2);
+
                         // Massima
                         if (shieldList.get(j).getColor() == Color.RED) {
                             shieldList.get(j).setColor(Color.ORANGE);
@@ -386,7 +414,11 @@ public class GamePanel extends JPanel{
         for (int index = 0; index < beamList.size(); index++) {
             if (beamList.get(index).isColliding(playerShip)) {
                 beamList.remove(index);
-             
+
+                //Suono giocatore colpito
+                Sounds.sound(sound4);
+
+                //Toglie una vita
                 lifeList.remove(lifeList.size() - 1); //Toglie una vita
             }
         }
@@ -424,6 +456,10 @@ public class GamePanel extends JPanel{
         //In caso di vittoria
         if (enemyList.isEmpty()) {
 
+            //Suono vittoria
+            Sounds.sound(win);
+
+            //Controllo numero vite
             //System.out.print (lifeList.size());
 
             //Contatore livelli perfetti
@@ -470,7 +506,10 @@ public class GamePanel extends JPanel{
         
         // Termina partita se il giocatore perde tutte le vite
         else if (lifeList.isEmpty()) {
-            
+
+            //Suono sconfitta
+            Sounds.sound(loss);
+
             // Opzioni post-partita
             int answer = JOptionPane.showConfirmDialog(null, "HAI TOTALIZZATO " + score + " PUNTI\nVuoi giocare di nuovo?", "SCONFITTA", 0);
             // Se si riavvia la partita
@@ -493,7 +532,9 @@ public class GamePanel extends JPanel{
                 System.exit(0);
             }
         }
-              
+
+
+
     }
     
    
@@ -514,6 +555,9 @@ public class GamePanel extends JPanel{
         this.setupGame();
         this.setFocusable(true);
         this.requestFocusInWindow();
+
+        //Musica in sottofondo
+         Sounds.music(musica);
     }
 
 

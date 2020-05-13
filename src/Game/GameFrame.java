@@ -2,6 +2,9 @@
 package Game;
 
 import java.awt.Color;
+import java.io.IOException;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JFrame;
 
 
@@ -31,8 +34,7 @@ public class GameFrame extends JFrame
         game.start();  
     }
     
-    public static void main(String[] args) 
-    {
+    public static void main(String[] args) throws IOException, UnsupportedAudioFileException, LineUnavailableException {
          java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
