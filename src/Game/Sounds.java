@@ -12,8 +12,7 @@ import javax.sound.sampled.DataLine;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
-
-public class Sounds {
+public class Sounds extends GamePanel {
 
     public static void main(String[] args) {
 
@@ -48,7 +47,9 @@ public class Sounds {
             ol.open(ais);
             ol.loop(Clip.LOOP_CONTINUOUSLY);
 
-            if (GamePanel. == true)
+            if (GamePanel.en == true){
+                ol.stop();
+            }
 
         }catch(UnsupportedAudioFileException ee){ee.printStackTrace();}
         catch(IOException ea){ea.printStackTrace();}

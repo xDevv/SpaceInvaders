@@ -65,7 +65,7 @@ public class GamePanel extends JPanel{
     private boolean newBonusEnemy = true;
     private boolean hitMarker = false;
     private boolean gameStatus = false;
-    public boolean en = false;
+    public static boolean en = false;
     // Liste Array 
     public ArrayList<Ship> lifeList = new ArrayList();
     public ArrayList<Ship> bonusEnemyList = new ArrayList();
@@ -92,7 +92,6 @@ public class GamePanel extends JPanel{
         }
         return en;
     }
-
 
 
     public final void setupGame() {
