@@ -8,6 +8,7 @@ import java.awt.Rectangle;
 
 public class Shield extends GameObject {
 
+
     int width;
     int height;
 
