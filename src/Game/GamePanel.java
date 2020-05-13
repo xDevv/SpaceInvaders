@@ -65,7 +65,8 @@ public class GamePanel extends JPanel{
     private boolean newBonusEnemy = true;
     private boolean hitMarker = false;
     private boolean gameStatus = false;
-    public static boolean en = false;
+
+
     // Liste Array 
     public ArrayList<Ship> lifeList = new ArrayList();
     public ArrayList<Ship> bonusEnemyList = new ArrayList();
@@ -84,16 +85,6 @@ public class GamePanel extends JPanel{
     public File loss = new File("sounds/Loss.wav");
     
     
-    public boolean enemy(boolean en){
-        if (enemyList.size() == 0){
-            en = true;
-        }else{
-            en = false;
-        }
-        return en;
-    }
-
-
     public final void setupGame() {
 
         // Nemici

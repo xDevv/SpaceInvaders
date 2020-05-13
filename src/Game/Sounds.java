@@ -12,7 +12,9 @@ import javax.sound.sampled.DataLine;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
-public class Sounds extends GamePanel {
+
+public class Sounds {
+
 
     public static void main(String[] args) {
 
@@ -45,11 +47,10 @@ public class Sounds extends GamePanel {
             DataLine.Info info=new DataLine.Info(Clip.class,ais.getFormat(),((int)ais .getFrameLength()*af.getFrameSize()));
             Clip ol=(Clip)AudioSystem.getLine(info);
             ol.open(ais);
-            ol.loop(Clip.LOOP_CONTINUOUSLY);
+            //ol.loop(Clip.LOOP_CONTINUOUSLY);
+            ol.start();
 
-            if (GamePanel.en == true){
-                ol.stop();
-            }
+
 
         }catch(UnsupportedAudioFileException ee){ee.printStackTrace();}
         catch(IOException ea){ea.printStackTrace();}
@@ -57,6 +58,13 @@ public class Sounds extends GamePanel {
 
 
     }
+
+    public void ferma(){
+
+    }
+
+
+
 
 
 }
