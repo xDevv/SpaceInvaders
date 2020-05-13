@@ -1,7 +1,6 @@
 package Game;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import javax.sound.sampled.AudioFileFormat;
 import javax.sound.sampled.AudioFormat;
@@ -38,9 +37,8 @@ public class Sounds {
 
     }
 
-    public static void music(File sound1) {
+    public static Thread music(File sound1) {
         try{
-
             AudioFileFormat aff = AudioSystem.getAudioFileFormat(sound1);
             AudioInputStream ais=AudioSystem.getAudioInputStream(sound1);
             AudioFormat af=aff.getFormat();
@@ -52,19 +50,18 @@ public class Sounds {
 
 
 
-        }catch(UnsupportedAudioFileException ee){ee.printStackTrace();}
+        }
+        catch(UnsupportedAudioFileException ee){ee.printStackTrace();}
         catch(IOException ea){ea.printStackTrace();}
         catch(LineUnavailableException LUE){LUE.printStackTrace();};
 
-
+        return null;
     }
 
-    public void ferma(){
-
+    public static Thread ferma(File sound1){
+        music(sound1).interrupt();
+        return null;
     }
-
-
-
 
 
 }
