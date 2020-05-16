@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="Space Invaders PC">
+    <output-path>$PROJECT_DIR$/out/artifacts/Space_Invaders_PC</output-path>
+    <root id="root">
+      <element id="archive" name="Space_Invaders_PC.jar">
+        <element id="module-output" name="Space Invaders PC" />
+      </element>
+    </root>
+  </artifact>
+</component>

@@ -16,6 +16,7 @@ public class Bullet extends MovingGameObject {
     }
 
     public int getDiameter() {
+
         return this.diameter;
     }
 

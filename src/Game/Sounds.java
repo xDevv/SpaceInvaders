@@ -59,7 +59,7 @@ public class Sounds {
     }
 
     public static Thread ferma(File sound1){
-        music(sound1).interrupt();
+        music(sound1).stop();
         return null;
     }
 
