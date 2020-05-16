@@ -58,7 +58,7 @@ public class Sounds {
         return null;
     }
 
-    public static Thread ferma(File sound1){
+    public static Thread stop(File sound1){
         music(sound1).stop();
         return null;
     }

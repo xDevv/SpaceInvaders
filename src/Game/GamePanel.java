@@ -550,7 +550,7 @@ public class GamePanel extends JPanel{
          Sounds.music(musica);
 
          if (lifeList.size()==0){
-             Sounds.ferma(musica);
+             Sounds.stop(musica);
          }
     }
 

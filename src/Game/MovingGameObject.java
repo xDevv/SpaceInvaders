@@ -8,7 +8,7 @@ public abstract class MovingGameObject extends GameObject implements Moveable{
     int xVel;
     int yVel;
     
-    // Constructor for any non controllable object
+    // Costruttore per gli oggetti non controllabili
     public MovingGameObject(int xPosition, int yPosition, int xVelocity, int yVelocity, Color color)
     {
         super(xPosition, yPosition, color);
@@ -17,7 +17,7 @@ public abstract class MovingGameObject extends GameObject implements Moveable{
     
     }
     
-    // Accessors and mutators for every part of the MovingGameObject constructor
+    // Accesso ai costruttori di MovingGameObject
     public int getXVelocity()
     {
         return xVel;
@@ -36,7 +36,7 @@ public abstract class MovingGameObject extends GameObject implements Moveable{
     }
     @Override
     
-    // Used to move non controllable objects
+    // Muove gli oggetti non controllabili
     public void move()
     {
         this.xPos += xVel;
