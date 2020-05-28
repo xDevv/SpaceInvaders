@@ -10,8 +10,6 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Random;
@@ -20,9 +18,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import javax.sound.sampled.*;
 
 
 public class GamePanel extends JPanel{
@@ -181,7 +176,7 @@ public class GamePanel extends JPanel{
             if (newBeamCanFire) {
                 for (int index = 0; index < enemyList.size(); index++) {
                     if (r.nextInt(30) == index) {
-                        beam = new Beam(enemyList.get(index).getXPosition(), enemyList.get(index).getYPosition(), 0, Color.YELLOW);
+                        beam = new Beam(enemyList.get(index).getXPosition(), enemyList.get(index).getYPosition(), Color.YELLOW);
                         beamList.add(beam);
                        
                     }

@@ -7,18 +7,12 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 
 public class Bullet extends MovingGameObject {
-    int diameter;
     int yVelocity;
 
-    public Bullet(int xPosition, int yPosition, int diameter, Color color) {
+    public Bullet(int xPosition, int yPosition, Color color) {
         super(xPosition, yPosition, 0, 0, color);
-        this.diameter = diameter;
     }
 
-    public int getDiameter() {
-
-        return this.diameter;
-    }
 
     public void draw(Graphics g) {
         g.setColor(this.color);

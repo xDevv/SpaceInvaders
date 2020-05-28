@@ -29,14 +29,12 @@ public class KeyboardController implements KeyListener {
 
     }
 
-    public void resetController()
-    {
-        keyStatus = new boolean[256]; 
+    public void resetController() {
+        keyStatus = new boolean[256];
     }
     
     @Override
     public void keyTyped(KeyEvent ke) {
-        
     }
 
     @Override
@@ -46,7 +44,7 @@ public class KeyboardController implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent ke) {
-        keyStatus[ke.getKeyCode()] = false; 
+        keyStatus[ke.getKeyCode()] = false;
     }
 }
     
