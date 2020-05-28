@@ -3,10 +3,7 @@ package Game;
 
 import java.awt.Color;
 
-/**
- *
- * @author Spartan Tech
- */
+
 public abstract class MovingGameObject extends GameObject implements Moveable{
     
     int xVel;

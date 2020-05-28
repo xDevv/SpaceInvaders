@@ -18,12 +18,12 @@ public class Ship extends ControlledGameObject {
     ImageIcon lifeCounterShip2 = new ImageIcon("dist/images/ship1_2_life.gif");
     ImageIcon lifeCounterShip3 = new ImageIcon("dist/images/ship1_3_life.gif");
 
-    // Constructor for all ship objects
+    // Costruttore per tutte le navi
     public Ship(int xPosition, int yPosition, Color color, KeyboardController control) {
         super(xPosition, yPosition, color, control);
     }
 
-    // Draw bonus enemy ship
+    //Disegna il nemico bonus
     public void bonusDraw(Graphics g) {
 
         bonusEnemy.paintIcon(null, g, this.getXPosition(), this.getYPosition());

@@ -58,10 +58,4 @@ public class Sounds {
         return null;
     }
 
-    public static Thread ferma(File sound1){
-        music(sound1).interrupt();
-        return null;
-    }
-
-
 }

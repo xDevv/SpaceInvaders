@@ -549,9 +549,6 @@ public class GamePanel extends JPanel{
         //Musica in sottofondo
          Sounds.music(musica);
 
-         if (lifeList.size()==0){
-             Sounds.ferma(musica);
-         }
     }
 
 
