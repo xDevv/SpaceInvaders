@@ -18,12 +18,12 @@ public class Ship extends ControlledGameObject {
     ImageIcon lifeCounterShip2 = new ImageIcon("dist/images/ship1_2_life.gif");
     ImageIcon lifeCounterShip3 = new ImageIcon("dist/images/ship1_3_life.gif");
 
-    // Constructor for all ship objects
+    // Costruttore di oggetti Ship
     public Ship(int xPosition, int yPosition, Color color, KeyboardController control) {
         super(xPosition, yPosition, color, control);
     }
 
-    // Draw bonus enemy ship
+    // Disegna il nemico bonus
     public void bonusDraw(Graphics g) {
 
         bonusEnemy.paintIcon(null, g, this.getXPosition(), this.getYPosition());
@@ -54,7 +54,7 @@ public class Ship extends ControlledGameObject {
     	}
     }
 
-    // Gets the hit box for all ship objects
+    // Ottiene le hitbox degli oggetti Ship
     @Override
     public Rectangle getBounds() {
         return new Rectangle(this.getXPosition(), this.getYPosition(), 50, 50);
@@ -72,7 +72,7 @@ public class Ship extends ControlledGameObject {
             xPos += 10;
         }
         
-        // Move from edge to edge without stopping
+        // Effetto Pac-Man :-)
         if (xPos > 800) {
             xPos = -50;
         }

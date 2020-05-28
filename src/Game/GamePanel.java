@@ -19,17 +19,18 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+import static Game.Sounds.*;
+
 
 public class GamePanel extends JPanel{
 
     // Timer
     private Timer gameTimer;
 
-
+    //Controller
     public KeyboardController controller;
 
 
-   
     // Dimensioni schermata e fps
     private final int gameWidth = 800; 
     private final int gameHeight = 800;
@@ -60,6 +61,7 @@ public class GamePanel extends JPanel{
     private boolean newBonusEnemy = true;
     private boolean hitMarker = false;
     private boolean gameStatus = false;
+    public boolean game = false;
 
 
     // Liste Array 
@@ -78,9 +80,13 @@ public class GamePanel extends JPanel{
     public File musica = new File("sounds/Musica.wav");
     public File win = new File("sounds/Win.wav");
     public File loss = new File("sounds/Loss.wav");
+    public File rip = new File("sounds/Silenzio.wav");
     
     
     public final void setupGame() {
+
+        game = true;
+        System.out.print (game);
 
         // Nemici
     		for (int row = 0; row < 6; row++) {
@@ -221,6 +227,8 @@ public class GamePanel extends JPanel{
     }
     
     public void updateGameState(int frameNumber) {
+
+
 
         // Movimento del giocatore
         playerShip.move();
@@ -441,6 +449,8 @@ public class GamePanel extends JPanel{
         //In caso di vittoria
         if (enemyList.isEmpty()) {
 
+            game = false;
+
             //Suono vittoria
             Sounds.sound(win);
 
@@ -492,6 +502,11 @@ public class GamePanel extends JPanel{
         // Termina partita se il giocatore perde tutte le vite
         else if (lifeList.isEmpty()) {
 
+            //Ferma la musica
+            game = false;
+            System.out.print(game);
+            Sounds.music(musica, game);
+
             //Suono sconfitta
             Sounds.sound(loss);
 
@@ -518,8 +533,6 @@ public class GamePanel extends JPanel{
             }
         }
 
-
-
     }
     
    
@@ -542,7 +555,7 @@ public class GamePanel extends JPanel{
         this.requestFocusInWindow();
 
         //Musica in sottofondo
-         Sounds.music(musica);
+         Sounds.music(musica, game);
 
          if (lifeList.size()==0){
              Sounds.stop(musica);
