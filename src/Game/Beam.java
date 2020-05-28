@@ -8,7 +8,7 @@ import java.awt.Rectangle;
 public class Beam extends MovingGameObject {
 
     //Proietti sparati dai nemici
-    public Beam(int xPosition, int yPosition, int diameter, Color color) {
+    public Beam(int xPosition, int yPosition, Color color) {
         super(xPosition, yPosition, 0, 0, color);
     }
     

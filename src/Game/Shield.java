@@ -11,7 +11,7 @@ public class Shield extends GameObject {
     int width;
     int height;
 
-    // Constructor for Shield objects
+    // Costruttori per gli oggetti Shield
     public Shield(int xPosition, int yPosition, int width, int height, Color color) {
         super(xPosition, yPosition, color);
         this.width = width;
@@ -36,14 +36,14 @@ public class Shield extends GameObject {
         this.height = height;
     }
 
-    // Used to draw shield objects
+    // Disegna gli oggetti Shield
     @Override
     public void draw(Graphics g) {
         g.setColor(color);
         g.fillRect(this.getXPosition(), this.getYPosition(), 90, 10);
     }
 
-    // Used to get the hit box of a shield object
+    //Ottiene la hitbox degli oggetti Shield
     @Override
     public Rectangle getBounds() {
         Rectangle shieldHitbox = new Rectangle(this.getXPosition(), this.getYPosition(), 90, 10);
