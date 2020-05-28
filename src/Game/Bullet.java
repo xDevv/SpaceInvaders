@@ -1,5 +1,4 @@
-
-
+//Proiettili del giocatore
 package Game;
 
 import java.awt.Color;
@@ -19,12 +18,12 @@ public class Bullet extends MovingGameObject {
         return this.diameter;
     }
 
-
+//Disegna i proiettili
     public void draw(Graphics g) {
         g.setColor(this.color);
         g.fillRect(this.getXPosition(), this.getYPosition(), 7, 15);
     }
-
+// Ottiene la hitbox
     public Rectangle getBounds() {
         Rectangle bulletHitbox = new Rectangle(this.xPos, this.yPos, 7, 15);
         return bulletHitbox;

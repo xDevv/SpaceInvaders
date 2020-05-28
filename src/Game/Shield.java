@@ -19,7 +19,7 @@ public class Shield extends GameObject {
 
     }
 
-    // Accessors and mutators for every part of the shield constructor
+    // get e set delle parti del costruttore
     public int getWidth() {
         return width;
     }
