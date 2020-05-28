@@ -20,6 +20,7 @@ public abstract class MovingGameObject extends GameObject implements Moveable{
     // Accesso ai costruttori di MovingGameObject
     public int getXVelocity()
     {
+
         return xVel;
     }
     public int getYVelocity()
