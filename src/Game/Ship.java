@@ -54,7 +54,7 @@ public class Ship extends ControlledGameObject {
     	}
     }
 
-    // Gets the hit box for all ship objects
+    // Ottiene la hitbox delle navicelle
     @Override
     public Rectangle getBounds() {
         return new Rectangle(this.getXPosition(), this.getYPosition(), 50, 50);
@@ -72,7 +72,7 @@ public class Ship extends ControlledGameObject {
             xPos += 10;
         }
         
-        // Move from edge to edge without stopping
+        // Muovi da un bordo all'altro
         if (xPos > 800) {
             xPos = -50;
         }
