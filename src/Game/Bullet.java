@@ -8,9 +8,15 @@ import java.awt.Rectangle;
 
 public class Bullet extends MovingGameObject {
     int yVelocity;
+    int diameter;
 
-    public Bullet(int xPosition, int yPosition, Color color) {
+    public Bullet(int xPosition, int yPosition, int diameter, Color color) {
         super(xPosition, yPosition, 0, 0, color);
+        this.diameter = diameter;
+    }
+
+    public int getDiameter() {
+        return this.diameter;
     }
 
 
